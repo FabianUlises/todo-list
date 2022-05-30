@@ -4,12 +4,15 @@ const Input = ({ inputText, setInputText, tasks, setTasks }) => {
   //function for input text to be recognized
   const inputTextHandler = (e) => {
     console.log(e.target.value);
-    setInputText(e.target.value);
+    setInputText(e.target.value); // for state to track what is being input
   };
 
   const submitTaskHandler = (e) => {
     e.preventDefault(); // to prevent window from being refreshed
-    setTasks([...tasks, { text: inputText, completed: false }]);
+    setTasks([
+      ...tasks,
+      { text: inputText, completed: false, id: Math.random() * 1000 },
+    ]);
     setInputText(''); //to rest state back to ""
   };
 
