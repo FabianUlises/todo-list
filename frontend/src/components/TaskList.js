@@ -8,6 +8,7 @@ const TaskList = ({ tasks, setTasks }) => {
         {/* gain access to each task by mapping the array*/}
         {tasks.map((task) => (
           <Task
+            task={task}
             setTasks={setTasks}
             tasks={tasks}
             text={task.text}
