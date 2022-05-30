@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Input from './components/Input';
 import Filter from './components/Filter';
-import Tasks from './components/Tasks';
+import TaskList from './components/TaskList';
 
 function App() {
   const [inputText, setInputText] = useState(''); //useState to track changes within input box
@@ -11,9 +11,14 @@ function App() {
   return (
     <div className='App'>
       <header>ToDo App!</header>
-      <Input setInputText={setInputText} />
+      <Input
+        inputText={inputText}
+        tasks={tasks}
+        setTasks={setTasks}
+        setInputText={setInputText}
+      />
       <Filter />
-      <Tasks setInputText={setInputText} />
+      <TaskList setInputText={setInputText} />
     </div>
   );
 }
