@@ -18,7 +18,7 @@ function App() {
         setInputText={setInputText}
       />
       <Filter />
-      <TaskList tasks={tasks} />
+      <TaskList setTasks={setTasks} tasks={tasks} />
     </div>
   );
 }
