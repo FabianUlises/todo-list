@@ -5,9 +5,11 @@ const express = require('express');
 app.use(express.json());
 app.use(cors());
 require('dotenv').config();
+const connection = require('./tododb');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+connection();
 
 // Routes
 app.get('/', (req, res) => {
