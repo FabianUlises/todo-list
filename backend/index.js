@@ -2,11 +2,11 @@
 const cors = require('cors');
 const express = require('express');
 // Configuration
+const app = express();
 app.use(express.json());
 app.use(cors());
 require('dotenv').config();
 const connection = require('./tododb');
-const app = express();
 const PORT = process.env.PORT || 3000;
 
 connection();
