@@ -17,8 +17,17 @@
 .Task-completed {
   text-decoration: line-through;
   background-color: darkred;
+  align-items: center;
 }
 
+.Body {
+  background-color: #0A1A6D;
+}
+
+.Active-tasks {
+  background-color: #DFCFCF;
+  align-items: center;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
