@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Input from './components/Input';
+import Filter from './components/Filter';
+import TaskList from './components/TaskList';
 
 function App() {
+  const [inputText, setInputText] = useState(''); //useState to track changes within input box
+  const [tasks, setTasks] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <header>ToDo App!</header>
+      <Input
+        inputText={inputText}
+        tasks={tasks}
+        setTasks={setTasks}
+        setInputText={setInputText}
+      />
+      <Filter />
+      <TaskList setTasks={setTasks} tasks={tasks} />
     </div>
   );
 }
