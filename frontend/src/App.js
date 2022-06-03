@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import Input from './components/Input';
 import Filter from './components/Filter';
 import TaskList from './components/TaskList';
