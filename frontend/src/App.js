@@ -9,6 +9,12 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   return (
+<<<<<<< HEAD
+    <div className="App">
+      <header className="App-header">
+        hello world
+      </header>
+=======
     <div className='App'>
       <header>ToDo App!</header>
       <h3>Your Tasks</h3>
@@ -20,6 +26,7 @@ function App() {
       />
       <Filter />
       <TaskList setTasks={setTasks} tasks={tasks} />
+>>>>>>> ac01b55a90787f1eac0c061ebd5b94feac42facd
     </div>
   );
 }
