@@ -32,11 +32,39 @@ function App() {
       .catch(err => console.error('Error: ', err));
   };
 
-  // Complete button
+  // Complete function for button
   const completeTask = async (id) => {
-    console.log('complete task');
+    // Test console log
+    console.log('complete button was pressed!');
   };
 
+  // Delete function for button
+  const deleteTask = async (id) => {
+    // Test console log
+    console.log('delete button was pressed!');
+    // const data = await fetch(API + '/todo/delete/' + id, {
+    //   method: "DELETE"
+    // }).then(res => res.json());
+    // setTasks(tasks => tasks.filter(task => task._id !== data._id));
+  }
+
+
+
+  // Add new task function for button
+  const addTodo = async () => {
+    const data = await fetch(API + "/todo/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text: inputText
+      })
+    }).then(res => res.json());
+    setTasks([...tasks, data]);
+    // Reseting value of input text to empty
+    setInputText('')
+  };
 
 
   return (
@@ -49,7 +77,7 @@ function App() {
         setTasks={setTasks}
         setInputText={setInputText}
       />
-      <Filter tasks={tasks} setTasks={setTasks} />
+      <Filter tasks={tasks} setTasks={setTasks} completeTask={completeTask} />
     </div>
   );
 }

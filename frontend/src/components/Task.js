@@ -1,6 +1,6 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks }) => {
+const Task = ({ text, task, tasks, setTasks, completeTask }) => {
   //Button Events
   const deleteTask = () => {
     setTasks(tasks.filter((element) => element.id !== task.id));
