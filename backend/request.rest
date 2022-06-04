@@ -1,0 +1,23 @@
+GET http://localhost:3000/todos
+
+
+###
+
+
+POST http://localhost:3000/todo/new
+Content-Type: application/json
+
+{
+    "text": "Study"
+}
+
+
+###
+
+DELETE http://localhost:3000/todo/delete/62994ccbe07830c83f916d68
+
+
+###
+
+
+PUT http://localhost:3000/todo/complete/6299657130d5c4bc11eb82c7

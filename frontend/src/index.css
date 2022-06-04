@@ -1,13 +1,135 @@
-body {
+.App {
+  text-align: center;
+}
+
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.Task-completed {
+  text-decoration: line-through;
+  background-color: darkred;
+  align-items: center;
+}
+
+.Body {
+  background-color: #0A1A6D;
+}
+
+.Active-tasks {
+  background-color: #DFCFCF;
+  align-items: center;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+/* Fabians styles */
+
+/* 
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: rgba(41, 67, 68, 0.807);
+  color: rgba(255, 255, 255, 0.742);
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  padding: 1.6rem;
+  min-height: 100vh;
+  max-width: 68rem;
 }
+h1 {
+  font-size: 4rem;
+  color: salmon;
+  font-weight: lighter;
+  margin-bottom: 5rem;
+}
+.todo {
+  position: relative;
+  background-color: rgba(95, 158, 160, 0.762);
+  padding: .8rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: .8rem;
+  transition: .5s ease;
+}
+.todo:hover {
+  background-color: rgba(95, 158, 160, 0.358);
+}
+.todo .checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: .5rem;
+  border-radius: 10px;
+  background-color: rgba(41, 67, 68, 0.807);
+}
+.todo.complete  .checkbox{
+  background-color: rgba(250, 128, 114, 0.696);
+}
+.todo.complete .text {
+  text-decoration: line-through;
+}
+.todo .delete-todo {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  color: whitesmoke;
+  background-color: rgb(255, 64, 0);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+} 
+ */
