@@ -13,7 +13,7 @@ const Input = ({ inputText, setInputText, tasks, setTasks }) => {
       ...tasks,
       { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
-    setInputText(''); //to rest state back to ""
+    setInputText(''); //to reset state back to ""
   };
 
   return (

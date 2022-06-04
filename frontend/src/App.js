@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import './App.css';
 import Input from './components/Input';
 import Filter from './components/Filter';
-import TaskList from './components/TaskList';
 
 function App() {
-  const [inputText, setInputText] = useState(''); //useState to track changes within input box
+  const [inputText, setInputText] = useState(''); //useState to track changes and render within input box
   const [tasks, setTasks] = useState([]);
 
   return (
@@ -17,8 +16,7 @@ function App() {
         setTasks={setTasks}
         setInputText={setInputText}
       />
-      <Filter />
-      <TaskList setTasks={setTasks} tasks={tasks} />
+      <Filter tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }
