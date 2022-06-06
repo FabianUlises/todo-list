@@ -54,21 +54,21 @@ function App() {
 
 
 
-  // // Add new task function for button
-  // const addTodo = async () => {
-  //   const data = await fetch(API + "/todo/new", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       text: inputText
-  //     })
-  //   }).then(res => res.json());
-  //   setTasks([...tasks, data]);
-  //   // Reseting value of input text to empty
-  //   setInputText('')
-  // };
+  // Add new task function for button
+  const addTodo = async () => {
+    const data = await fetch(API + "/todo/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        text: inputText
+      })
+    }).then(res => res.json());
+    setTasks([...tasks, data]);
+    // Reseting value of input text to empty
+    setInputText('')
+  };
 
 
   return (
@@ -80,6 +80,7 @@ function App() {
         tasks={tasks}
         setTasks={setTasks}
         setInputText={setInputText}
+        addTodo={addTodo}
       />
       <Filter tasks={tasks} setTasks={setTasks} />
     </div>
