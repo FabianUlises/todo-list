@@ -16,6 +16,6 @@ app.get('/', todosController.home);
 app.get('/todos', todosController.getAllTodos);
 app.post('/todo/new', todosController.createTodo);
 app.delete('/todo/delete/:id',todosController.deleteTodo)
-app.put('/todo/complete/:id', todosController.updateTodo);
+app.patch('/todo/complete/:id', todosController.updateTodo);
 app.get('*', todosController.catchAll);
 module.exports = app;
