@@ -7,13 +7,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Connecting to mongoose
 const connection = require('./tododb');
-
 connection();
+
+// Requiring database from models dir
 const Todo = require('./models/Todo');
-const { modelNames } = require('mongoose');
-
-
 
 
 // Routes

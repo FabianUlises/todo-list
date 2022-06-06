@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+// Creating mongoose schema
 const TodoSchema = new Schema({
     text: {
         type: String,
@@ -11,6 +11,6 @@ const TodoSchema = new Schema({
         default: false
     }
 });
-
+// Creating mongoose model with schema
 const Todo = mongoose.model('Todo', TodoSchema);
 module.exports = Todo;
