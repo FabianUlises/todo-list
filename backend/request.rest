@@ -8,13 +8,13 @@ POST http://localhost:3000/todo/new
 Content-Type: application/json
 
 {
-    "text": "Run"
+    "text": "Jump"
 }
 
 
 ###
 
-DELETE http://localhost:3000/todo/delete/629ba9f6dea7e69eebca0b7a
+DELETE http://localhost:3000/todo/delete/629d4c5ebb7a2039d0f7fbdd
 
 
 ###
