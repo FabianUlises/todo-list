@@ -1,25 +1,25 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks }) => {
+const Task = ({ text, task, tasks, setTasks, completeTask }) => {
   //Button Events
   const deleteTask = () => {
     setTasks(tasks.filter((element) => element.id !== task.id));
   };
 
-  const completeTask = () => {
-    setTasks(
-      tasks.map((el) => {
-        //add if statement to change state value from falst to true
-        if (el.id === task.id) {
-          return {
-            ...el,
-            completed: !el.completed,
-          };
-        }
-        return el;
-      })
-    );
-  };
+  // const completeTask = () => {
+  //   setTasks(
+  //     tasks.map((el) => {
+  //       //add if statement to change state value from falst to true
+  //       if (el.id === task.id) {
+  //         return {
+  //           ...el,
+  //           completed: !el.completed,
+  //         };
+  //       }
+  //       return el;
+  //     })
+  //   );
+  // };
 
   // const editTask = ({ task }) => {};
 
@@ -32,7 +32,7 @@ const Task = ({ text, task, tasks, setTasks }) => {
       <li className={`task-item ${task.completed ? 'completed' : ''}`}>
         {text}
       </li>
-      <button onClick={completeTask}>
+      <button onClick={completeTask(task._id)}>
         <i>Complete</i>
       </button>
       <button onClick={deleteTask}>

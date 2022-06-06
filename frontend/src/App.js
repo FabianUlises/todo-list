@@ -36,11 +36,20 @@ function App() {
 
 
 
-  // // Complete function for button
-  // const completeTask = async (id) => {
-  //   // Test console log
-  //   console.log('complete button was pressed!');
-  // };
+  // Complete function for button
+  const completeTask = async (id) => {
+    // Test console log
+    console.log('complete button was pressed!');
+    const data = await fetch(API + "/todo/complete/" + id)
+      .then(res => res.json());
+
+    setTasks(tasks => tasks.map(task => {
+      if (task._id === data.id) {
+        task.complete = data.complete;
+      }
+      return task;
+    }))
+  };
 
   // // Delete function for button
   // const deleteTask = async (id) => {
@@ -82,7 +91,7 @@ function App() {
         setInputText={setInputText}
         addTodo={addTodo}
       />
-      <Filter tasks={tasks} setTasks={setTasks} />
+      <Filter tasks={tasks} setTasks={setTasks} completeTask={completeTask} />
     </div>
   );
 }

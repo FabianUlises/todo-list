@@ -14,6 +14,7 @@ const TaskList = ({ tasks, setTasks, filteredTasks, completeTask }) => {
                 tasks={tasks}
                 text={task.text}
                 key={task.id}
+                completeTask={completeTask}
               /> //render each Task Component by what's input
             ))
           : tasks.map((task) => (
@@ -23,6 +24,7 @@ const TaskList = ({ tasks, setTasks, filteredTasks, completeTask }) => {
                 tasks={tasks}
                 text={task.text}
                 key={task.id}
+                completeTask={completeTask}
               /> //render each Task Component by what's input
             ))}
       </ul>
