@@ -16,9 +16,8 @@ const Todo = require('./models/Todo');
 
 
 // Routes
-app.get('/', (req, res) => {
-    res.send('Todo List');
-});
+const todoController = require('./controllers/todosController');
+app.get('/', todoController.home);
 app.get('/todos', async (req, res) => {
     const todos = await Todo.find();
     res.json(todos);
