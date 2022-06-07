@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
-const dbUrl = 'mongodb+srv://admin:secretPassword1!@cluster0.9mgft6t.mongodb.net/?retryWrites=true&w=majority';
+const mongoose = require('mongoose')
 module.exports = async () => {
     try {
         const connectionParams = {
             useNewUrlParser: true,
             useUnifiedTopology: true
         };
-        await mongoose.connect(dbUrl, connectionParams);
+        await mongoose.connect(process.env.DBURL, connectionParams);
         console.log('Connected to database')
     } catch (error) {
         console.log('Could not connect to database', error)
