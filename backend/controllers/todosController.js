@@ -9,11 +9,6 @@ exports.home = (req, res) => {
 exports.getAllTodos = async (req, res) => {
     const todos = await Todo.find();
     res.status(200).json(todos)
-    //{     status: 'success',
-    //     data: {
-    //         todos
-    //     }
-    // }
 };
 // Create controller
 exports.createTodo = async (req, res) => {
@@ -22,20 +17,11 @@ exports.createTodo = async (req, res) => {
     });
     todo.save();
     res.status(201).json(todo)
-        // status: 'success',
-        // data: {
-        //     todo
-        // }
 };
 // Delete controller
 exports.deleteTodo = async (req, res) => {
     const result = await Todo.findByIdAndDelete(req.params.id);
     res.status(204).json(result)
-    //     status: 'success',
-    //     data: {
-    //         result
-    //     }
-    // }
 };
 // Update controller
 exports.updateTodo = async (req, res) => {
@@ -43,11 +29,6 @@ exports.updateTodo = async (req, res) => {
     todo.complete = !todo.complete;
     todo.save();
     res.status(200).json(todo)
-    //     status: 'success',
-    //     data: {
-    //         todo
-    //     }
-    // }
 };
 // Catch all controller
 exports.catchAll = (req, res) => {

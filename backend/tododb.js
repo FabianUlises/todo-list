@@ -5,8 +5,8 @@ module.exports = async () => {
             useNewUrlParser: true,
             useUnifiedTopology: true
         };
-        await mongoose.connect(process.env.DBURL, connectionParams);
-        console.log('Connected to database')
+        await mongoose.connect(process.env.DBURI, connectionParams);
+        // console.log('Connected to database')
     } catch (error) {
         console.log('Could not connect to database', error)
     }
