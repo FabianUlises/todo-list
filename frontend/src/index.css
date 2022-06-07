@@ -13,9 +13,9 @@ body {
   justify-content: center;
 }
 
-.task .text{
+/* .task .text{
   text-decoration: line-through;
-}
+} */
 
 header {
   color: white;
@@ -127,7 +127,7 @@ input {
 }
 
 .task-item {
-  text-decoration-line: line-through;
+  /* text-decoration-line: line-through; */
   text-decoration-thickness: 2px;
   color: black;
 }

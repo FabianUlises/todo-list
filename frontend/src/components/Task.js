@@ -29,7 +29,7 @@ const Task = ({ text, task, tasks, setTasks, completeTask }) => {
       {/* <button onClick={editTask}>
         <i>Edit</i>
       </button> */}
-      <li className={`task-item ${task.completed ? 'completed' : ''}`}>
+      <li className={`task-item`}>
         {text}
       </li>
       <button class='completeButton' onClick={completeTask(task._id)}>
