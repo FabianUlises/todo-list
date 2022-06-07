@@ -33,8 +33,19 @@ function App() {
 
 
 
+
+
+  // Delete function for button
+  const deleteTask = async (id) => {
+    const data = await fetch(API_BASE + '/todo/delete/' + id, {
+      method: "DELETE"
+    }).then(res => res.json());
+
+    setTasks(tasks => tasks.filter(task => task._id !== data._id));
+  }
+
   // Complete function for button
-  const completeTask = async (id) => {
+  const completeTask = async id => {
     const data = await fetch(API_BASE + "/todo/complete/" + id)
       .then(res => res.json());
 
@@ -43,16 +54,8 @@ function App() {
         task.complete = data.complete;
       }
       return task;
-    }))
+    }));
   };
-
-  // Delete function for button
-  const deleteTask = async (id) => {
-    const data = await fetch(API_BASE + '/todo/delete/' + id, {
-      method: "DELETE"
-    }).then(res => res.json());
-    setTasks(tasks => tasks.filter(task => task._id !== data._id));
-  }
 
 
 
@@ -87,8 +90,8 @@ function App() {
       <Filter
         tasks={tasks}
         setTasks={setTasks}
-        completeTask={completeTask}
         deleteTask={deleteTask}
+        completeTask={completeTask}
        />
     </div>
 

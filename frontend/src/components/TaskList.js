@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Task from './Task';
 
-const TaskList = ({ tasks, setTasks, filteredTasks, completeTask, deleteTask }) => {
+const TaskList = ({ tasks, setTasks, filteredTasks, deleteTask, completeTask }) => {
   return (
     <div className='container'>
       <ul className='Task-list'>
@@ -14,8 +14,8 @@ const TaskList = ({ tasks, setTasks, filteredTasks, completeTask, deleteTask }) 
                 tasks={tasks}
                 text={task.text}
                 key={task.id}
-                completeTask={completeTask}
                 deleteTask={deleteTask}
+                completeTask={completeTask}
               /> //render each Task Component by what's input
             ))
           : tasks.map((task) => (
@@ -25,8 +25,8 @@ const TaskList = ({ tasks, setTasks, filteredTasks, completeTask, deleteTask }) 
                 tasks={tasks}
                 text={task.text}
                 key={task.id}
-                completeTask={completeTask}
                 deleteTask={deleteTask}
+                completeTask={completeTask}
               /> //render each Task Component by what's input
             ))}
       </ul>

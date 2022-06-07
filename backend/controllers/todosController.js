@@ -28,7 +28,7 @@ exports.updateTodo = async (req, res) => {
     const todo = await Todo.findById(req.params.id);
     todo.complete = !todo.complete;
     todo.save();
-    res.status(200).json(todo)
+    res.json(todo)
 };
 // Catch all controller
 exports.catchAll = (req, res) => {

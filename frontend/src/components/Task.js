@@ -1,6 +1,6 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks, completeTask, deleteTask }) => {
+const Task = ({ text, task, tasks, setTasks, deleteTask, completeTask }) => {
   // //Button Events
   // const deleteTask = () => {
   //   setTasks(tasks.filter((element) => element.id !== task.id));
@@ -37,23 +37,16 @@ const Task = ({ text, task, tasks, setTasks, completeTask, deleteTask }) => {
   // const editTask = ({ task }) => {};
 
 
-
-
   return (
     <div className='task'>
       {/* ternary operator to toggle value between true and false */}
       {/* <button onClick={editTask}>
         <i>Edit</i>
       </button> */}
-      <li className={'task-item ' + (task.complete ? 'completed' : '')}>
+      <li className={'task-item ' + (task.complete ? 'completed' : '')} >
         {text}
       </li>
-      <button
-        onClick={() => {
-          completeTask(task._id);
-        }}
-        className={'completeButton'}
-      >
+      <button className={'completeButton'} onClick={() => completeTask(task._id)}>
         <i>Complete</i>
       </button>
       <button
