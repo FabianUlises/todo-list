@@ -1,7 +1,8 @@
 import { React, useState } from 'react';
 import TaskList from './TaskList';
 
-const Filter = ({ task, tasks, setTasks }) => {
+
+const Filter = ({ task, tasks, setTasks, completeTask }) => {
   const [filter, setFilter] = useState('all');
   const [filteredTasks, setFilteredTasks] = useState('');
 
@@ -36,6 +37,7 @@ const Filter = ({ task, tasks, setTasks }) => {
         filteredTasks={filteredTasks}
         setTasks={setTasks}
         tasks={tasks}
+        completeTask={completeTask}
       />
     </div>
   );

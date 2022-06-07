@@ -1,20 +1,20 @@
 import React from 'react';
 
-const Input = ({ inputText, setInputText, tasks, setTasks }) => {
+const Input = ({ inputText, setInputText, tasks, setTasks, addTodo }) => {
   //function for input text to be recognized
   const inputTextHandler = (e) => {
     console.log(e.target.value);
     setInputText(e.target.value); // for state to track what is being input
   };
 
-  const submitTaskHandler = (e) => {
-    e.preventDefault(); // to prevent window from being refreshed
-    setTasks([
-      ...tasks,
-      { text: inputText, completed: false, id: Math.random() * 1000 },
-    ]);
-    setInputText(''); //to reset state back to ""
-  };
+  // const submitTaskHandler = (e) => {
+  //   e.preventDefault(); // to prevent window from being refreshed
+  //   setTasks([
+  //     ...tasks,
+  //     { text: inputText, completed: false, id: Math.random() * 1000 },
+  //   ]);
+  //   setInputText(''); //to reset state back to ""
+  // };
 
   return (
     <form>
@@ -24,7 +24,7 @@ const Input = ({ inputText, setInputText, tasks, setTasks }) => {
         type='text'
         className='todo-input'
       />
-      <button onClick={submitTaskHandler} className='todo-button' type='submit'>
+      <button onClick={addTodo} className='todo-button' type='submit'>
         Submit
       </button>
     </form>

@@ -1,25 +1,25 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks }) => {
+const Task = ({ text, task, tasks, setTasks, completeTask }) => {
   //Button Events
   const deleteTask = () => {
     setTasks(tasks.filter((element) => element.id !== task.id));
   };
 
-  const completeTask = () => {
-    setTasks(
-      tasks.map((el) => {
-        //add if statement to change state value from falst to true
-        if (el.id === task.id) {
-          return {
-            ...el,
-            completed: !el.completed,
-          };
-        }
-        return el;
-      })
-    );
-  };
+  // const completeTask = () => {
+  //   setTasks(
+  //     tasks.map((el) => {
+  //       //add if statement to change state value from falst to true
+  //       if (el.id === task.id) {
+  //         return {
+  //           ...el,
+  //           completed: !el.completed,
+  //         };
+  //       }
+  //       return el;
+  //     })
+  //   );
+  // };
 
   // const editTask = ({ task }) => {};
 
@@ -29,10 +29,10 @@ const Task = ({ text, task, tasks, setTasks }) => {
       {/* <button onClick={editTask}>
         <i>Edit</i>
       </button> */}
-      <li className={`task-item ${task.completed ? 'completed' : ''}`}  class="completedTask">
+      <li className={`task-item ${task.completed ? 'completed' : ''}`}>
         {text}
       </li>
-      <button class='completeButton' onClick={completeTask}>
+      <button class='completeButton' onClick={completeTask(task._id)}>
         <i>Complete</i>
       </button>
       <button class='deleteButton' onClick={deleteTask}>
