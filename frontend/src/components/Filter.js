@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import TaskList from './TaskList';
 
+
 const Filter = ({ task, tasks, setTasks, completeTask }) => {
   const [filter, setFilter] = useState('all');
   const [filteredTasks, setFilteredTasks] = useState('');
