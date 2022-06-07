@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Input from './components/Input';
 import Filter from './components/Filter';
 
-
 //  Connecting to database
 const API = 'http://localhost:3001';
 
@@ -82,7 +81,6 @@ function App() {
 
   return (
     <div className='App'>
-      <header>ToDo App!</header>
       <h3>Your Tasks</h3>
       <Input
         inputText={inputText}
