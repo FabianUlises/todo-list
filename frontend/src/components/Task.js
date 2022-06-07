@@ -1,23 +1,23 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks, completeTask }) => {
-  //Button Events
-  const deleteTask = () => {
-    setTasks(tasks.filter((element) => element.id !== task.id));
-  };
+const Task = ({ text, task, tasks, setTasks, completeTask, deleteTask }) => {
+  // //Button Events
+  // const deleteTask = () => {
+  //   setTasks(tasks.filter((element) => element.id !== task.id));
+  // };
 
-  //delete function
-  const deleteButton = async (id) => {
-    try {
-      const deleteResult = await fetch(`/todo/delete/${id}`, {
-        method: 'DELETE',
-      });
-      console.log(deleteResult);
-      setTasks(tasks.filter((task) => task._id !== id));
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+  // //delete function
+  // const deleteButton = async (id) => {
+  //   try {
+  //     const deleteResult = await fetch(`/todo/delete/${id}`, {
+  //       method: 'DELETE',
+  //     });
+  //     console.log(deleteResult);
+  //     setTasks(tasks.filter((task) => task._id !== id));
+  //   } catch (error) {
+  //     console.error(error.message);
+  //   }
+  // };
 
   // const completeTask = () => {
   //   setTasks(
@@ -35,27 +35,33 @@ const Task = ({ text, task, tasks, setTasks, completeTask }) => {
   // };
 
   // const editTask = ({ task }) => {};
-  console.log(task);
+
+
+
+
   return (
     <div className='task'>
       {/* ternary operator to toggle value between true and false */}
       {/* <button onClick={editTask}>
         <i>Edit</i>
       </button> */}
-      <li className={`task-item`}>
+      <li className={'task-item ' + (task.complete ? 'completed' : '')}>
         {text}
       </li>
       <button
         onClick={() => {
           completeTask(task._id);
         }}
+        className={'completeButton'}
       >
         <i>Complete</i>
       </button>
       <button
         onClick={() => {
-          deleteButton(task._id);
+          // deleteButton(task._id);
+          deleteTask(task._id)
         }}
+        className={'deleteButton'}
       >
         <i>Delete</i>
       </button>

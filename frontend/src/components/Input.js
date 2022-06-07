@@ -20,7 +20,7 @@ const Input = ({ inputText, setInputText, tasks, setTasks, addTodo }) => {
     <form>
       <input
         value={inputText} //for the UI to update along with the State
-        onChange={inputTextHandler}
+        onChange={e => setInputText(e.target.value)}
         type='text'
         className='todo-input'
       />

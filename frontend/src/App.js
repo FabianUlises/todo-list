@@ -3,7 +3,7 @@ import Input from './components/Input';
 import Filter from './components/Filter';
 
 //  Connecting to database
-const API = 'http://localhost:3001';
+const API_BASE = "http://localhost:3001";
 
 
 function App() {
@@ -12,34 +12,30 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   
-  // useEffects
-  // Calling for api at page load
-  useEffect(() => {
-    // Function to get database
-    GetTodos();
-    console.log('todos')
-  }, [])
 
+
+
+  // useEffects
+  useEffect(() => {
+    GetTodos();
+  }, [])
 
 
   // Functions
   // Function to fetch database
-    const GetTodos = () => {
-    // Fetching data
-    fetch(API + "/todos")
+  const GetTodos = () => {
+    fetch(API_BASE + "/todos")
       .then(res => res.json())
       .then(data => setTasks(data))
-      .catch(err => console.error('Error: ', err))
-  };
+      .catch(err => console.log(err))
+  }
 
 
 
 
   // Complete function for button
   const completeTask = async (id) => {
-    // Test console log
-    console.log('complete button was pressed!');
-    const data = await fetch(API + "/todo/complete/" + id)
+    const data = await fetch(API_BASE + "/todo/complete/" + id)
       .then(res => res.json());
 
     setTasks(tasks => tasks.map(task => {
@@ -50,21 +46,19 @@ function App() {
     }))
   };
 
-  // // Delete function for button
-  // const deleteTask = async (id) => {
-  //   // Test console log
-  //   console.log('delete button was pressed!');
-  //   // const data = await fetch(API + '/todo/delete/' + id, {
-  //   //   method: "DELETE"
-  //   // }).then(res => res.json());
-  //   // setTasks(tasks => tasks.filter(task => task._id !== data._id));
-  // }
+  // Delete function for button
+  const deleteTask = async (id) => {
+    const data = await fetch(API_BASE + '/todo/delete/' + id, {
+      method: "DELETE"
+    }).then(res => res.json());
+    setTasks(tasks => tasks.filter(task => task._id !== data._id));
+  }
 
 
 
   // Add new task function for button
   const addTodo = async () => {
-    const data = await fetch(API + "/todo/new", {
+    const data = await fetch(API_BASE + "/todo/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -81,6 +75,7 @@ function App() {
 
   return (
     <div className='App'>
+
       <h3>Your Tasks</h3>
       <Input
         inputText={inputText}
@@ -89,9 +84,16 @@ function App() {
         setInputText={setInputText}
         addTodo={addTodo}
       />
-      <Filter tasks={tasks} setTasks={setTasks} completeTask={completeTask} />
+      <Filter
+        tasks={tasks}
+        setTasks={setTasks}
+        completeTask={completeTask}
+        deleteTask={deleteTask}
+       />
     </div>
+
   );
 }
 
 export default App;
+
