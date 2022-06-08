@@ -1,58 +1,39 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks, deleteTask, completeTask }) => {
-  // //Button Events
-  // const deleteTask = () => {
-  //   setTasks(tasks.filter((element) => element.id !== task.id));
-  // };
+const Task = ({ task, toggleRender, setToggleRender }) => {
+  //Button Events
+  const deleteTask = () => {
+    console.log(task);
+    fetch(`http://localhost:3001/todo/delete/${task._id}`, {
+      method: 'DELETE',
+    }).then(() => {
+      setToggleRender(!toggleRender);
+    });
+  };
 
-  // //delete function
-  // const deleteButton = async (id) => {
-  //   try {
-  //     const deleteResult = await fetch(`/todo/delete/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  //     console.log(deleteResult);
-  //     setTasks(tasks.filter((task) => task._id !== id));
-  //   } catch (error) {
-  //     console.error(error.message);
-  //   }
-  // };
-
-  // const completeTask = () => {
-  //   setTasks(
-  //     tasks.map((el) => {
-  //       //add if statement to change state value from falst to true
-  //       if (el.id === task.id) {
-  //         return {
-  //           ...el,
-  //           completed: !el.completed,
-  //         };
-  //       }
-  //       return el;
-  //     })
-  //   );
-  // };
-
-  // const editTask = ({ task }) => {};
-
+  const completeTask = () => {
+    console.log(task);
+    fetch(`http://localhost:3001/todo/complete/${task._id}`, {
+      method: 'GET',
+    }).then(() => {
+      setToggleRender(!toggleRender);
+    });
+  };
 
   return (
     <div className='task'>
-      {/* ternary operator to toggle value between true and false */}
-      {/* <button onClick={editTask}>
-        <i>Edit</i>
-      </button> */}
-      <li className={'task-item ' + (task.complete ? 'completed' : '')} >
-        {text}
+      <li className={'task-item ' + (task.complete ? 'completed' : '')}>
+        {task.text}
       </li>
-      <button className={'completeButton'} onClick={() => completeTask(task._id)}>
+      <button
+        className={'completeButton'}
+        onClick={() => completeTask(task._id)}
+      >
         <i>Complete</i>
       </button>
       <button
         onClick={() => {
-          // deleteButton(task._id);
-          deleteTask(task._id)
+          deleteTask();
         }}
         className={'deleteButton'}
       >
