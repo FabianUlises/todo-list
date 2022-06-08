@@ -1,12 +1,29 @@
 import React from 'react';
 //"text prop" to track what's been input by user
-const Task = ({ text, task, tasks, setTasks, deleteTask, completeTask }) => {
-  // //Button Events
-  // const deleteTask = () => {
-  //   setTasks(tasks.filter((element) => element.id !== task.id));
-  // };
+const Task = ({ text, task }) => {
+  //Button Events
+  const deleteTask = () => {
+    // setTasks(tasks.filter((element) => element.id !== task.id));
+    console.log(task);
+    const result = fetch(`http://localhost:3001/todo/delete/${task._id}`, {
+      method: 'DELETE',
+    }).then(() => {
+      console.log('delete succesful');
+    });
+    console.log(result);
+  };
 
-  // //delete function
+  const completeTask = () => {
+    // setTasks(tasks.filter((element) => element.id !== task.id));
+    console.log(task);
+    const result = fetch(`http://localhost:3001/todo/complete/${task._id}`, {
+      method: 'PATCH',
+    }).then(() => {
+      console.log('complete succesful');
+    });
+    console.log(result);
+  };
+  //delete function
   // const deleteButton = async (id) => {
   //   try {
   //     const deleteResult = await fetch(`/todo/delete/${id}`, {
@@ -36,23 +53,24 @@ const Task = ({ text, task, tasks, setTasks, deleteTask, completeTask }) => {
 
   // const editTask = ({ task }) => {};
 
-
   return (
     <div className='task'>
       {/* ternary operator to toggle value between true and false */}
       {/* <button onClick={editTask}>
         <i>Edit</i>
       </button> */}
-      <li className={'task-item ' + (task.complete ? 'completed' : '')} >
+      <li className={'task-item ' + (task.complete ? 'completed' : '')}>
         {text}
       </li>
-      <button className={'completeButton'} onClick={() => completeTask(task._id)}>
+      <button
+        className={'completeButton'}
+        onClick={() => completeTask(task._id)}
+      >
         <i>Complete</i>
       </button>
       <button
         onClick={() => {
-          // deleteButton(task._id);
-          deleteTask(task._id)
+          deleteTask();
         }}
         className={'deleteButton'}
       >
