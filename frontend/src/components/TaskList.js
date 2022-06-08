@@ -1,18 +1,18 @@
 import { React } from 'react';
 import Task from './Task';
 
-const TaskList = ({ tasks, filteredTasks }) => {
+const TaskList = ({ filteredTasks, toggleRender, setToggleRender }) => {
   return (
     <div className='container'>
       <ul className='Task-list'>
-        {/* gain access to each task by mapping the array*/}
-        {filteredTasks
-          ? filteredTasks.map((task) => (
-              <Task task={task} text={task.text} key={task.id} /> //render each Task Component by what's input
-            ))
-          : tasks.map((task) => (
-              <Task task={task} text={task.text} key={task.id} /> //render each Task Component by what's input
-            ))}
+        {filteredTasks.map((task) => (
+          <Task
+            task={task}
+            key={task.id}
+            toggleRender={toggleRender}
+            setToggleRender={setToggleRender}
+          />
+        ))}
       </ul>
     </div>
   );
